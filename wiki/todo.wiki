@@ -4,3 +4,7 @@
  * Groups
  * Profile
  * Events
+ * Settings
+ * Admin
+ * Email
+ * Geo
