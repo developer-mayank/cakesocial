@@ -1,13 +1,16 @@
-#summary One-sentence summary of this page.
-
 = Introduction =
 
-Add your content here.
+== cakesocial ==
 
+основа для создания социальных сетей
+проект некоммерческий open source
 
-= Details =
+CakeSocial
+это версия 0.1 CakeSocial
+частично имплементированы
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+* Регистрация
+* Логин
+* Добавление фото
+* Список гостей
+* Группы 
