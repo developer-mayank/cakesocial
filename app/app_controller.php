@@ -1,4 +1,10 @@
 <?php
+/**
+ * 
+ *
+ * @autor yuriy
+ * @autor 7278282@gmail.com
+ */
 class AppController extends Controller {
 
 	var $components = array('Auth','RequestHandler');

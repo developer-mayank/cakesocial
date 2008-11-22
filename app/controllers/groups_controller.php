@@ -1,4 +1,10 @@
 <?php
+/**
+ * 
+ *
+ * @autor yuriy
+ * @autor 7278282@gmail.com
+ */
  class GroupsController extends AppController {  
      var $name = 'Groups';  
 	 
