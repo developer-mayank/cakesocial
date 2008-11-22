@@ -1,4 +1,10 @@
 <?
+/**
+ * 
+ *
+ * @autor yuriy
+ * @autor 7278282@gmail.com
+ */
 class User extends AppModel {
 
         var $name = 'User';

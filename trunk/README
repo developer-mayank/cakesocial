@@ -1,0 +1,16 @@
+cakesocial
+**************************
+
+Requirements
+============
+
+    * Apache web server with mod_rewrite
+    * PHP 5.2+
+    * MySQL 4.1+
+
+Installation
+============
+
+   1. Extract the archive. 
+   2. Create a new MySQL database (preferably use utf8_unicode_ci collation) and into this new database import the SQL file cakesocial.sql.
+   3. Edit the app/config/database.php file with your database connection details.

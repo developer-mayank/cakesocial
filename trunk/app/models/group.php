@@ -1,4 +1,10 @@
 <?
+/**
+ * 
+ *
+ * @autor yuriy
+ * @autor 7278282@gmail.com
+ */
  class Group extends AppModel {  
      var $name = 'Group';  
      var $useTable = 'groups';  
