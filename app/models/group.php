@@ -3,7 +3,7 @@
  * 
  *
  * @autor yuriy
- * @autor 7278282@gmail.com
+ * @autor 7278181@gmail.com
  */
  class Group extends AppModel {  
      var $name = 'Group';  
