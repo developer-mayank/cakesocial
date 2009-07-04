@@ -1,5 +1,11 @@
+
 cakesocial
-**************************
+
+
+
+****************************************
+http://code.google.com/p/cakesocial/
+****************************************
 
 Requirements
 ============
@@ -7,10 +13,11 @@ Requirements
     * Apache web server with mod_rewrite
     * PHP 5.2+
     * MySQL 4.1+
+    * CakePHP 1.2 (Make sure Cake 1.2 is installed. Take note of the include path to the Cake libraries.)
 
 Installation
 ============
 
-   1. Extract the archive. 
+   1. Extract the archive in your app cakephp directory. 
    2. Create a new MySQL database (preferably use utf8_unicode_ci collation) and into this new database import the SQL file cakesocial.sql.
    3. Edit the app/config/database.php file with your database connection details.
