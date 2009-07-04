@@ -1,4 +1,4 @@
-<h2>Pегистрация на StudIP</h2>
+<h2>Register</h2>
 
 <? echo $form->create('User',array('action' => 'register'));?>
 <?=$form->input('username',array('label'=>'Ник (логин)'));?>

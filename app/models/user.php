@@ -1,22 +1,35 @@
 <?
 /**
- * 
  *
  * @autor yuriy
  * @autor 7278181@gmail.com
  */
 class User extends AppModel {
 
-        var $name = 'User';
+    var $name = 'User';
 		
-      var $displayField = 'username';  
-//     var $name = 'User';  
-//    var $useTable = 'users';  
-    var $validate = array(  
-        'email_address' => array('email'),  
-         'password' => array('alphaNumeric'),  
-         'active' => array('numeric')  
-     );  
+	var  $validate = array(  
+       'username' => array(
+             'between' => array(
+                 'rule' => array('between', 5, 15),
+                 'message' => 'must be minumum of 5 characters'),
+             'unique' => array(
+                 'rule' => 'isUnique',
+                 'message' => 'Such Login is already busy. Try to think of another.....'),
+             'alphanum' => array(
+                 'rule' => 'alphaNumeric',
+                 'message' => 'Please enter Nick  in Latin letters, and (or) the numbers !')
+              ),
+             'email' => array('mail' => array(
+		                 'rule' => array('email', true),
+						 'allowEmpty' => false,
+		                 'message' => 'Проверьте правильность Email!'),
+             'unique' => array(
+                 'rule' => 'isUnique',
+                 'message' => 'The database already exists a user with this Email!'))
+	 );
+
+     
      var $hasAndBelongsToMany = array(  
              'Group' => array('className' => 'Group',  
                          'joinTable' => 'groups_users',  

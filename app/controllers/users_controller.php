@@ -1,7 +1,6 @@
 <?
 /**
  * 
- *
  * @autor yuriy
  * @autor 7278181@gmail.com
  */
@@ -74,7 +73,7 @@ class UsersController extends AppController {
 		
 	}
 	
-	function view_all() {
+	function listing() {
 		// TODO Pangnite
 		$users = $this->User->findAll();
 		$this->set('users',$users);

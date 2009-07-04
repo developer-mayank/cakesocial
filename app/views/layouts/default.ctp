@@ -38,7 +38,7 @@ echo $this->element('menu');
 
 <div id="content">
 
-<div style="float : left;width : 220px;margin-right :  20px;">
+<div style="float : left;width : 200px;margin-right :  20px;">
 <? if ($session->check('Auth.User')): ?>
 <? echo $this->element('mymenu');?>
 <? else: ?>
@@ -46,18 +46,10 @@ echo $this->element('menu');
 <? endif ?>
 </div>
 
-        <div style="float : left;">
-        
-		<div id = "div_spinner" style="display :none;position: absolute;top : 150px;left :700px;">
-		<?php echo $html->image('spinner.gif'); ?>
-		<div>pleace wait…!</div>
-		</div>
-
+        <div style="float:left;" id = "center">
 		<?php if ($session->check('Message.flash')) $session->flash();?>
 		<?php if ($session->check('Message.auth')) $session->flash('auth'); ?>
-			<div style="float : left;" id = "div_userarea">
-				<?php echo $content_for_layout; ?>
-			</div>
+		<?php echo $content_for_layout; ?>
 		</div>
 	
 </div>
@@ -69,7 +61,9 @@ echo $this->element('footer');
 ?>
 </div>
 
-<?php echo $cakeDebug; ?>
-
+<div id = "div_spinner" style="display :none;position: absolute;top : 150px;left :700px;">
+		<?php echo $html->image('spinner.gif'); ?>
+		<div>pleace wait!</div>
+</div>
 </body>
 </html>

@@ -1,7 +1,52 @@
- * {
+*{
 margin:0;
 padding:0;
+font-family:verdana;
 }
+
+body {
+	color: #fff;
+}
+
+#container {
+	text-align: left;
+	width : 900px;
+	margin-left : auto;
+	margin-right : auto;
+}
+
+#logo{
+    clear: both;
+	background-color: #d9d9d9;
+	padding-top : 50px;
+	height : 80px;
+	margin: 0;
+}
+
+#menu{
+background-color: #d9d9d9;
+height : 30px;
+}
+
+#content{
+	background-color : #fff;
+	clear: both;
+	color: #333;
+	padding: 10px;
+	overflow: auto;
+	min-height: 400px;
+}
+#center{
+	width : 660px;
+}
+#footer {
+	clear: both;
+	text-align: right;
+	background-color: #d9d9d9;
+	height : 38px;
+}
+
+
  
  div.auto_complete {
  position :absolute;
@@ -13,11 +58,8 @@ padding:0;
  }
  li.selected { background-color: #ffb; }
 
-/* General Style Info */
-body {
-	color: #fff;
-	font-family:'lucida grande',verdana,helvetica,arial,sans-serif;
-}
+
+
 a {
 	background-color: inherit;
 	color: #003d4c;
@@ -82,14 +124,12 @@ form div.required {
 	font-weight: bold;
 }
 
-
-
 label {
 	display: block;
 	padding-right: 20px;
 	margin-bottom : 15px; 
 	float: left;
-	width: 130px;
+	width: 150px;
 }
 
 .login  label {
@@ -103,8 +143,7 @@ input, textarea {
 	font-family:"Trebuchet MS";
 	padding: 2px;
 	margin : 0; 
-
-	
+	width: 300px;
 }
 
 .login input {
@@ -156,34 +195,7 @@ input[type=submit] {
 	font-size: 1.0em;
 }
 
-/* Layout */
-#container {
-	text-align: left;
-	width : 1000px;
-	margin-left : auto;
-	margin-right : auto;
-}
 
-#logo{
-    clear: both;
-	background-color: #d9d9d9;
-	height : 50px;
-	margin:  0px  0px 9px 0px ;
-}
-
-#content{
-	background-color : #fff;
-	clear: both;
-	color: #333;
-	padding: 10px;
-	overflow: auto;
-}
-#footer {
-	clear: both;
-	text-align: right;
-	background-color: #d9d9d9;
-	height : 18px;
-}
 
 /* Tables  #a6e21b */
 table {
@@ -386,4 +398,5 @@ div.cake-code-dump span.code-highlight {
 list-style: none;
 display: inline;
 margin: 0;
+padding-right: 20px;
 }

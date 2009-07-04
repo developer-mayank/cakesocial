@@ -1,21 +1,20 @@
 <?php
 /**
  * 
- *
  * @autor yuriy
- * @autor 7278282@gmail.com
+ * @autor 7278181@gmail.com
  */
 class AppController extends Controller {
 
 	var $components = array('Auth','RequestHandler');
-	var $helpers = array('Form','Javascript','Ajax');
+	var $helpers = array('Form','Javascript','Ajax','Paginator');
 
 	 
 	function beforeFilter(){
 	   
 	   if (isset($this->Auth)) {
 		   $this->Auth->loginAction = array('controller' => 'users', 'action' => 'login');
-		   //$this->Auth->autoRedirect = false;
+		   $this->Auth->autoRedirect = true;
 		   //$this->Auth->fields = array('username' => 'email', 'password' => 'pasword'); 
 		   $this->Auth->loginError = 'Invalid username / password combination.Please try again.';
 		   $this->Auth->authError  = 'Для просмотра этой страницы Вы должны залогиниться или зарегистрироваться.';

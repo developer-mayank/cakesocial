@@ -1,11 +1,10 @@
 <div id="logo">
-<div style="float : left;">
-	<li><?php echo $html->link('CakeSocial',
-	 array('controller' => 'pages', 'action' => 'display','home'));
-
-	 ?></li>
-
+<div style="float : left;padding-left : 50px;">
+	<h1>
+	<?php echo $html->link('CakeSocial',array('controller' => 'pages', 'action' => 'display','home'));?>
+	</h1>
 </div>
+
 <div style="float : right;">
 
  <div id="info">
