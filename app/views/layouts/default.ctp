@@ -50,7 +50,7 @@ echo $this->element('menu');
         
 		<div id = "div_spinner" style="display :none;position: absolute;top : 150px;left :700px;">
 		<?php echo $html->image('spinner.gif'); ?>
-		<div>Идет загрузка новых данных!</div>
+		<div>pleace wait�!</div>
 		</div>
 
 		<?php if ($session->check('Message.flash')) $session->flash();?>
@@ -63,7 +63,11 @@ echo $this->element('menu');
 </div>
 </div>
 
-<div id="footer"></div>
+<div id="footer">
+<?php 
+echo $this->element('footer'); 
+?>
+</div>
 
 <?php echo $cakeDebug; ?>
 
