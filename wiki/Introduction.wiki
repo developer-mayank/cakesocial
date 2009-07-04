@@ -1,6 +1,7 @@
 = Introduction =
 
-== CakeSocial == is free and opensource web application for creating social networks.
+== CakeSocial == 
+is free and opensource web application for creating social networks.
 
 In 0.1 version have been partialy implemented
 
