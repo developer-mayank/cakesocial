@@ -1,3 +1,2 @@
 
-
-svn https://cakesocial.googlecode.com/svn/trunk
+http://code.google.com/p/cakesocial/source/checkout
