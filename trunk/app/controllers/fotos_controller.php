@@ -2,8 +2,8 @@
 /**
  * 
  *
- * @autor yuriy
- * @autor 7278181@gmail.com
+ * @author yuriy
+ * @email 7278181@gmail.com
  */
 class FotosController extends AppController {
 

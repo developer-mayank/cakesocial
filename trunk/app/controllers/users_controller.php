@@ -1,8 +1,8 @@
 <?
 /**
  * 
- * @autor yuriy
- * @autor 7278181@gmail.com
+ * @author yuriy
+ * @email 7278181@gmail.com
  */
 class UsersController extends AppController {
 
@@ -13,10 +13,10 @@ class UsersController extends AppController {
 	$this->layout = 'page';
    }
 	
-	function logout(){
-		$this->Session->setFlash('bye bye'); 
-		$this->redirect($this->Auth->logout());
-	}
+    function logout(){
+            $this->Session->setFlash('bye bye');
+            $this->redirect($this->Auth->logout());
+    }
 	
     function captcha() {
         $this->Captcha->render();
