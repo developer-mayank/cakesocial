@@ -7,9 +7,9 @@
 <?php endif ?>
 </div>
 
-<div style="float : left;width : 80px;margin-right :  15px;">
+<div style="float : left;width : 200px;margin-right :  15px;">
 <? echo $html->link($user['User']['username'],array('controller' => 'users','action' => 'view',$user['User']['id']));?>
-<?php echo $user['User']['name']; ?>
+<?php echo " - " . $user['User']['name']; ?>
 </div>
 
 </div>
