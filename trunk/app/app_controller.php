@@ -6,7 +6,7 @@
  */
 class AppController extends Controller {
 
-	var $components = array('ACL','Auth','RequestHandler');
+	var $components = array('Acl','Auth','RequestHandler');
 	var $helpers = array('Form','Javascript','Ajax','Paginator');
 
 	 
