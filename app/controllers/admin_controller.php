@@ -2,8 +2,8 @@
 /**
  *
  *
- * @author pROCKrammer
- * @email prockrammer@ya.ru
+ * @author Sardorbek Pulatov (pROCKramer)
+ * @email : sardor90@gmail.com 
  */
     class AdminController extends AppController
     {
