@@ -8,6 +8,6 @@ $options = array(
 echo $ajax->form('invite','Group',$options );
 echo  $form->select('GroupsUser.group_id',$groups,null,array(),$showEmpty = 'укажите группу');
 echo $form->input('GroupsUser.user_id',array('type'=>'hidden', 'value' => $user_id));
-echo $form->submit('Пригласить');
+echo $form->submit('Invite');
 echo $form->end(); 
 ?>
