@@ -1,11 +1,11 @@
 <h2>CakeSocial 0.11</h2>
 <br/>
-В этой  версии  CakeSocial частично имплементированы 
+On this version partialy implemented:
 <br/>
 <ul>
-<li>Регистрация
-<li>Логин
-<li>Добавление фото
-<li>Список гостей
-<li>Группы
+<li>Registration
+<li>Authentication
+<li>Photos adding
+<li>Guest list
+<li>Groups
 </ul>

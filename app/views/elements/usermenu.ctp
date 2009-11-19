@@ -13,7 +13,7 @@ $options = array(
 ?>
  <div id="usermenu">
 	    <ul>
-	    <li><?echo $ajax->link('Cообщества', '/groups/main/'.$user['User']['id'],$options);?></li>
-	    <li><?echo $ajax->link('Личные фото', '/fotos/view/'.$user['User']['id'],$options);?></li>
+	    <li><?echo $ajax->link('Groups', '/groups/main/'.$user['User']['id'],$options);?></li>
+	    <li><?echo $ajax->link('My Photos', '/fotos/view/'.$user['User']['id'],$options);?></li>
 	    </ul>
 </div>
