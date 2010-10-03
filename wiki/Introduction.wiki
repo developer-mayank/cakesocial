@@ -1,28 +1,12 @@
 = Introduction =
 
 == CakeSocial == 
+
 is free and opensource web application for creating social networks.
 
-In 0.1 version have been partialy implemented
-
- * Registration
- * Authorization
- * Photo Adding
- * Guest List
- * Groups
 
 
 == cakesocial ==
 
 основа для создания социальных сетей
-проект некоммерческий open source
 
-*CakeSocial*
-это версия 0.1 CakeSocial
-частично имплементированы
-
- * Регистрация
- * Логин
- * Добавление фото
- * Список гостей
- * Группы 
