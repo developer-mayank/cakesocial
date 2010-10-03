@@ -28,7 +28,9 @@ array('width' => 200 ,'alt' => $Auth['User']['name'].' '.$Auth['User']['sname'] 
         <li><?echo $html->link('profile', '/profiles/edit');?></li>
 	    <li><?echo $html->link('my location','/geos/index/');?></li> 
         <li><?echo $html->link('educations','/educations/index');?></li>
-        <li><?echo $html->link('albums', '/albums/index');?></li>
+        <li><?
+        //echo $html->link('albums', '/albums/index');
+        ?></li>
         <li><?echo $html->link('guests', '/guests/index');?></li>
         <li><?echo $html->link('search', array('controller' => 'users', 'action' => 'search'));?></li>
 </ul>

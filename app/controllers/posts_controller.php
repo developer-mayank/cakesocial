@@ -33,7 +33,7 @@ class PostsController extends AppController {
 		if (!empty($this->data)) {
 			//debug($this->data);
 			if ($this->Post->save($this->data)) {
-				$this->set('msg','Cообщение отправленно!');
+				$this->set('msg','msg send!');
 				//send_mail($this->data);
 			}else {
 			    $this->set('msg','An error occurred in the transfer dannyh.Popytaytest again at another time.');
