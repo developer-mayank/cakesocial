@@ -1,11 +1,5 @@
 = TODO =
 
- * Forum
- * Groups
- * Profile
  * Events
  * Settings
  * Admin
- * Email
- * Geo
- * Friends
