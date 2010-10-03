@@ -1,4 +1,8 @@
 <?
+/**
+ * @author yuriy
+ * @email 7278181@gmail.com
+ */
 class ForumPost extends AppModel {
     var $belongsTo = array('Forum','User' => array(
 		'fields' => array('id','username','email')

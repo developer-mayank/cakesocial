@@ -10,7 +10,7 @@ class AppController extends Controller {
 	public $new_post_count = 0;
 	public $content_for_logo = '';
 	
-	public $elements_left  = array('login'=>array(),'top_city'=>array());
+	public $elements_left  = array('login'=>array());//,'top_city'=>array()
 	public $elements_right = array('new_user'=>array());
 	
 	
@@ -28,7 +28,7 @@ class AppController extends Controller {
 	   if (isset($this->Auth)) {
 		   $this->Auth->loginAction = array('controller' => 'users', 'action' => 'login');
 		   $this->Auth->fields = array('username' => 'email', 'password' => 'password');
-		   $this->Auth->allow('display','register','get','login','view','forget','activate','reset_pwd','search','sitemap');
+		   $this->Auth->allow('display','register','main','show','get','login','view','forget','activate','reset_pwd','search','sitemap');
 		   //$this->Auth->deny('add','edit','corner');
 		   $this->Auth->autoRedirect = true;
 		   //debug($this);

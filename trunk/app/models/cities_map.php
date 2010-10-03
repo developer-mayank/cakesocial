@@ -1,4 +1,8 @@
 <?
+/**
+ * @author yuriy
+ * @email 7278181@gmail.com
+ */
 class CitiesMap extends AppModel
 {
 	var $name = 'CitiesMap';

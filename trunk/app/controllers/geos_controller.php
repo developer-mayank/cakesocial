@@ -1,8 +1,4 @@
 <?
-/**
- * @author yuriy
- * @email 7278181@gmail.com
- */
 class GeosController extends AppController {
 
 	var $name = 'Geos';
@@ -58,7 +54,7 @@ class GeosController extends AppController {
 			$this->Geo->id = $this->passedArgs['main'];
 			$this->Geo->saveField('type',1);
 		}
-		$this->Geo->bindModel(array('belongsTo' => array('CitiesMap'=> array('className' => 'CitiesMap','foreignKey' => 'city_id'))));
+		//$this->Geo->bindModel(array('belongsTo' => array('CitiesMap'=> array('className' => 'CitiesMap','foreignKey' => 'city_id'))));
 		$geos = $this->Geo->find('all',array('conditions' => $cond));
 		//debug($geos);
 		$this->set('geos',$geos);

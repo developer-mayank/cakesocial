@@ -1,4 +1,8 @@
 <?
+/**
+ * @author yuriy
+ * @email 7278181@gmail.com
+ */
 class User extends AppModel {
 
     var $name = 'User';
@@ -37,7 +41,7 @@ class User extends AppModel {
 	function get_latest($limit=5) {
 		$this->recursive = -1;
 		$users =  $this->find('all', array('order'=>array('id' => 'desc'),
-			'limit' => $limit,'fields'=> array('id','name','fname','img'),
+			'limit' => $limit,'fields'=> array('id','name','sname','img'),
 			'conditions' => array('is_active = 1','img <> ""')));
 			return $users;
 			

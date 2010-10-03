@@ -46,7 +46,7 @@ endif;
 
 <h2>Google MAP</h2>
 <?php 
-$key = "ABQIAAAAGZBW7gt42T-mBJ95FIPGwRSntjUbqNgGmjzPhe4keAHyUrmfnRTqZp0XQZE_z4Kc1585VnllROhUOQ";
+$key = "your_key";
 $url = "http://maps.google.com/maps?file=api&v=2&key=$key";
 echo $javascript->link($url); 
 ?>
@@ -58,14 +58,13 @@ echo $javascript->link($url);
 if (!empty($points))
 {
    $default = array('type'=>'0','zoom'=>4,'lat'=>$points[0]['Point']['latitude'],'long'=>$points[0]['Point']['longitude']);
+   echo $googleMap->map($default, $style = 'width:540px; height: 300px' );
+	echo $googleMap->addMarkers($points);
 }
 else
 {
 	$default = array('type'=>'0','zoom'=>5,'lat'=>51.1162,'long'=>8.8069);
 }
-
-echo $googleMap->map($default, $style = 'width:540px; height: 300px' );
-echo $googleMap->addMarkers($points);
 ?>
 </div>
 <div>

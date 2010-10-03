@@ -1,4 +1,8 @@
 <?
+/**
+ * @author yuriy
+ * @email 7278181@gmail.com
+ */
 class Invitation extends AppModel
 {
 var $name = 'Invitation';
@@ -7,16 +11,15 @@ var $name = 'Invitation';
         'email' => array(
              'mail' => array(
                  'rule' => array('email', true),
-                 'message' => 'Проверьте правильность Email!'),
+                 'message' => 'wrong Email!'),
              'unique' => array(
                  'rule' => 'isUnique',
                  'required' => true,
                  'allowEmpty' => false,
-                 'message' => 'Приглашение на данный  Email уже было послано раннее.
-				 Попробуйте пригласить других знакомых!')),
+                 'message' => 'send ok!')),
 	    'title' => array(
            'rule' => 'notEmpty',
-           'message' => 'пожалуйста напишите что то в сообщении')
+           'message' => 'not empty')
 	 
 	 );
 }

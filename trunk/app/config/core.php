@@ -1,4 +1,12 @@
 <?php
+
+Configure::write('Email.from', '<info@example.org>');
+Configure::write('Email.delivery', 'debug'); //'smtp';
+
+
+
+
+
 /* SVN FILE: $Id: core.php 7250 2008-06-23 22:58:06Z gwoo $ */
 /**
  * This is core configuration file.

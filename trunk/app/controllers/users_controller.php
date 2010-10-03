@@ -7,8 +7,7 @@ class UsersController extends AppController {
 
 	var $name = 'Users';
 	var $helpers = array('Time','GoogleMap');
-	var $components = array('Email','Search'); // ,'Security'
-	//var $paginate = array('limit' => 2,'order' => array( 'User.id' => 'asc'));
+	var $components = array('Email','Search');
 
    function login(){
 		$this->layout = 'page';
@@ -49,14 +48,6 @@ class UsersController extends AppController {
 					$this->data['Geo']['user_id']= $user_id;
 					$this->data['Geo']['type'] = 1;
 					$this->User->Geo->save($this->data);
-					$address = $this->User->Geo->getAdress($this->data['Geo']['city_id']);
-				    $address = $address[0]['countries']['name'].', '.$address[0]['cities']['name'];
-					App::import('vendor','googlegeo',array('file' => 'google_geo.php'));
-					$googleGeo = new GoogleGeo($address);
-					$geo = $googleGeo->geo();	
-					$this->User->Geo->bindModel(array('hasOne' => array('CitiesMap')));
-					$geo['city_id']	 = $this->data['Geo']['city_id'];	
-					$this->User->Geo->CitiesMap->addLL($geo);
 					$this->User->bindModel(array('hasMany' => array('Album')));
 					$album['entity_id'] = $user_id;
 					$album['user_id']   = $user_id;
@@ -146,9 +137,7 @@ class UsersController extends AppController {
 		
 		$this->User->bindModel(array('hasOne' => array('Profile'=>array('className'=>'Profile','foreignKey'=> 'id'))));
 		$this->User->bindModel(array('hasMany' => array('Geo'=>array('className'=>'Geo','order' => 'Geo.type desc'))));
-		$this->User->Geo->bindModel(array('belongsTo' => array('CitiesMap'=> 
-		array('className' => 'CitiesMap','foreignKey' => 'city_id'
-		))));
+
 		
 		$this->User->recursive = 2;
 		if ($user_id)
@@ -162,9 +151,6 @@ class UsersController extends AppController {
 			$user     = $this->User->findByName($name);
 			$user_id  = $user['User']['id']; 
 		}
-		
-		$educations = ClassRegistry::init('Education')->getAllForUser($user_id);
-		$this->set('educations',$educations);
 		 $guest_id = $this->Auth->user('id');
 		 ClassRegistry::init('Guest')->add($user_id,$guest_id);
 		 $family_options = $this->User->Profile->family_options;
@@ -177,16 +163,7 @@ class UsersController extends AppController {
 		 $this->set('sex_options',$sex_options);
 		 $this->elements_right = array('studmenu'=>array('entity'=>$user['User']));
 		 $this->set('user',$user);
-		 $this->pageTitle = $user['User']['name'].' '.$user['User']['sname'].' '.$user['User']['fname'].' '.$user['User']['bdate'].' StudIP';
-		 //debug($user);
-		 if (!empty($user['Geo'][0]['CitiesMap'])) 
-		 {
-			 $this->elements_left = array('map'=>array('maps'=>array(0=>$user['Geo'][0]['CitiesMap'])));
-		 }
-		 
-		 
-		 
-		 
+		 $this->pageTitle = $user['User']['name'].' '.$user['User']['sname'].' '.$user['User']['bdate'].' cakesocial';	 
 	}
 	
 	function corner()
@@ -198,10 +175,8 @@ class UsersController extends AppController {
 		$user_id = $this->Auth->user('id');
 		$this->User->id = $user_id;
 		$user = $this->User->read();
-		$educations = ClassRegistry::init('Education')->getAllForUser($user_id);
-		//debug($educations);
 		 $this->set('user',$user);
-		 $this->set('educations',$educations);
+
 		 $family_options = $this->User->Profile->family_options;
 		 $sex_options = $this->User->Profile->sex_options ;
 		 $children_options = $this->User->Profile->children_options;
@@ -225,17 +200,14 @@ class UsersController extends AppController {
 			'order'=>array('updated' => 'desc'),
 			'limit' => 20,
 			'recursive' => 2, 
-			'fields'=> array('User.id','name','fname','img','is_online'),
+			'fields'=> array('User.id','name','sname','img','is_online'),
 			'conditions' => array('is_active = 1'),
 			'contain'=>array('Geo'=>array('conditions'=> array('type'=>1)),
 			'Geo.Country'=>array('conditions'=> array(''),'fields'=>'name'),
 			'Geo.City'=>array('conditions'=> array(''),'fields'=>'name'))  
 		);
 		$users =  $this->paginate();
-		//debug($users);
 		$this->set('users',$users);
-		
-		//$this->elements_left = array('mymenu'=>array());
 	}
 
 	

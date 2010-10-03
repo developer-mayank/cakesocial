@@ -19,18 +19,14 @@ if(isset ($geo))
 {
 	echo '<span class="geo_datum">'.$geo['City']['name'].'</span><br/>';
 }
-if ($user['fname']=='')
+if ($user['sname']=='')
 {
 	echo $html->link($user['name'],'/'.$user['name']);
 }
 else
 {
-	echo $html->link($user['fname'],'/'.$user['name']);
+	echo $html->link($user['sname'],'/'.$user['name']);
 }
-
-
-
-
 ?>
 </div>
 </div>

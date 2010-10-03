@@ -1,4 +1,8 @@
 <?
+/**
+ * @author yuriy
+ * @email 7278181@gmail.com
+ */
 class Forum extends AppModel {
     //var $belongsTo = array('Course','VirtualClass');
 	var $hasMany = array('ForumPost');
