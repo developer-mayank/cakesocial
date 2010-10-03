@@ -1,0 +1,1 @@
+<? echo $html->image('users/big/'.$foto['Foto']['src'],array('width' => 200));?>

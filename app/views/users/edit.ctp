@@ -1,13 +1,15 @@
-<h2>Регистрационые  данные</h2>
+<h2>edit</h2>
 <?php 
 echo $form->create('User', array('action' => 'edit'));
-echo $form->input('name',array('label'=>'Имя','value'=>$user['User']['name']));
-echo $form->input('sname',array('label'=>'Фамилия','value'=>$user['User']['sname']));
+echo $form->input('fname',array('label'=>'name','value'=>$user['User']['fname']));
+echo $form->input('sname',array('label'=>'family name','value'=>$user['User']['sname']));
 echo '<div>';
-echo $form->label('dateTime','Дата рождения');
-echo $form->dateTime('bdate','Y-M-D','NONE',$user['User']['bdate'],array('maxYear'=>date('Y')-15,'minYear'=>1955),false); 
+echo $form->label('dateTime','	
+Date of Birth');
+echo $form->dateTime('bdate','Y-M-D','NONE',
+$user['User']['bdate'],array('maxYear'=>date('Y')-15,'minYear'=>1955,'empty' => ''),false); 
 echo '</div>';
-echo $form->submit('Изменить данные');
+echo $form->submit('send');
 
 echo $form->end(); 
 ?>

@@ -1,6 +1,9 @@
-<h2>
-<?=$group['Group']['name']?>
-</h2>
-<?php 
-echo $html->link('удалить',"/groups/delete/{$group['Group']['id']}",null,'Are you sure?')
-?>
+<? if (!empty($group)) : ?>
+<h2>Groupname "<?=$group['Group']['name']?>"</h2>
+purpose : <?=$group['Group']['purpose']?>
+<br/><br/>
+title : <?=$group['Group']['title']?>
+<?php echo $userlist->make($group['User'],'users'); ?>
+<? else: ?>
+
+<? endif?>

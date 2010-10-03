@@ -1,27 +1,31 @@
-<h2>Register</h2>
-
+<div class="register">
+<h1>Registration</h1>
 <? echo $form->create('User',array('action' => 'register'));?>
-<?=$form->input('username',array('label'=>'Ник (логин)'));?>
-<?=$form->input('password',array('label'=>'Пароль'));?>
-<?=$form->input('email',array('label'=>'E-mail'));?>
-<?=$form->input('name',array('label'=>'Имя'));?>
-<?=$form->input('sname',array('label'=>'Фамилия'));?>
-
-<?
-//echo '<div>';
-//echo $form->label('dateTime','Дата рождения');
-//echo $form->dateTime('bdate','Y-M-D','NONE','1980-01-01',array('maxYear'=>date('Y')-15,'minYear'=>1955),false); 
-//echo '</div>';
-
-echo $form->input('bdate', array( 'label' => 'Дата рождения',
-                                  'dateFormat' => 'Y-M-D',
-                                  'minYear' => date('Y') - 17,
-                                  'maxYear' => date('Y') - 60 ));
-
-
-
-echo $form->input('captcha',array('label'=>'Введите текст с картинки'));
-echo $html->image('/users/captcha');
-echo $form->submit('Отправить');
+<? echo $form->input('fname',array('label'=>'Name'));?>
+<? echo $form->input('sname',array('label'=>'Familyname'));?>
+<?=$form->input('name',array('label'=>'Login'));?>
+<?=$form->input('password',array('label'=>'password') );?>
+<?=$form->input('email',array('label'=>'E-mail'));
+if (isset ($geo_ids))
+{
+	echo $this->Element('geo',array('geo_ids' => $geo_ids));
+}
+else
+{
+	echo $this->Element('geo');
+}
+echo $form->submit('Send');
 echo $form->end(); 
 ?>
+</div>
+
+<?echo $html->link('already registered', array('controller' => 'users', 'action' => 'login'));?>  :: 
+<?echo $html->link('forgot your password', '/users/forget');?> 
+<br/><br/>
+<span class = "info" onClick="Element.show('info')">INFO:</span>
+<span id="info" class = "description" style="display:none;">
+<br> * Info 1
+<br> * Info 1
+<br> * Info 1
+</span>
+<br/><br/>
