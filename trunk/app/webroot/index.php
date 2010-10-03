@@ -57,7 +57,7 @@
  *
  */
 	if (!defined('CAKE_CORE_INCLUDE_PATH')) {
-		define('CAKE_CORE_INCLUDE_PATH', ROOT); //'C:/cake_1.2.3.8166'
+		define('CAKE_CORE_INCLUDE_PATH', 'C:\cake_1.2.1.8004');
 	}
 
 /**

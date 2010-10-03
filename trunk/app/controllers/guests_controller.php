@@ -1,31 +1,27 @@
 <?
 /**
- * 
- *
  * @author yuriy
  * @email 7278181@gmail.com
  */
 class GuestsController extends AppController {
-
+	
 	var $name = 'Guests';
-	var $helpers = array('Form','Javascript','Ajax');
-	  
-	function add($id=null) {
-		$this->data['Guest']['owner_id'] = $id;	
-	    $this->data['Guest']['user_id']  = $this->Session->read('Auth.User.id');
-			if ($this->Guest->save($this->data)) {
-				return true;
-			}else {
-			    return false;
-			}	
-	}
+	var $helpers = array('Userlist');
 	
 	function index() {
-		Configure::write('debug', 0);
-		$user_id = $this->Session->read('Auth.User.id');
-		$guests_list = $this->Guest->findAll( array("owner_id =$user_id"));
+		$user_id = $this->Auth->user('id');
+		$this->Guest->bindModel(array('belongsTo' => array('User'=>
+		                                 array(
+										 'className' => 'User',
+										 'foreignKey' => 'guest_id'
+										 )
+		
+		)));
+		$cond = array("user_id = $user_id"); 
+		$guests_list = $this->Guest->find('all',array('conditions' => $cond));
+		//debug($guests_list);
 		$this->set('users',$guests_list);
+		$this->set('tit','Who is watching my page');
+		$this->render('/com/list');
 	}
-	
-	
 }

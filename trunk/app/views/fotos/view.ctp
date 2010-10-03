@@ -1,2 +1,8 @@
-<h2>Личные фото</h2>
-<? echo $this->element('foto',array('user_id' => $user_id));?>
+<?
+echo '<div style="text-align:center;">';
+       echo $html->image($folder.'/big/'.$foto['Foto']['src']);
+       	echo '<div style="text-align:center;">';
+	   	echo '<span class="description">'.$foto['Foto']['title'].'</span>';
+	   echo '</div>'; 	
+echo '</div>';
+?>

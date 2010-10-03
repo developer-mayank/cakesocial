@@ -36,19 +36,33 @@ class ImageComponent extends Object
 	*	$folderName: the name of the parent folder of the images. The images will be stored to /webroot/img/$folderName/big/ and  /webroot/img/$folderName/small/
 	*	$square: a boolean flag indicating whether you want square and zoom cropped thumbnails, or thumbnails with the same aspect ratio of the source image
 	*/	
-	function upload_image_and_thumbnail($data, $datakey, $imgscale, $thumbscale, $folderName, $square) {
-		if (strlen($data['Image'][$datakey]['name'])>4){ 
+	function upload_image_and_thumbnail($data,$imgscale,$thumbscale, $folderName, $square) {
+
+		if (strlen($data['Image']['src']['name'])>4){
 					$error = 0;
+					$postMaxSize = ini_get('post_max_size');
+                    $uploadMaxSize = ini_get('upload_max_filesize');
+                    $size = $postMaxSize;
+                    if ($uploadMaxSize < $postMaxSize) 
+      				{
+						$size = $uploadMaxSize;
+					}
+					$size_bild =  $data['Image']['src']['size'];
+					$size_bild = $size_bild/(1024*1024);
+					if ($size_bild > 2) 
+					{
+						//print ($size_bild);
+						return -1;
+					}
+					
 					$tempuploaddir = "img/temp"; // the /temp/ directory, should delete the image after we upload
 					$biguploaddir = "img/".$folderName."/big"; // the /big/ directory
+					//$midstuploaddir = "img/".$folderName."/midst"; // the /big/ directory
 					$smalluploaddir = "img/".$folderName."/small"; // the /small/ directory for thumbnails
+			
+					$datakey = 'src';
+					$filetype = $this->getFileExtension($data['Image']['src']['name']);
 					
-					// Make sure the required directories exist, and create them if necessary
-					if(!is_dir($tempuploaddir)) mkdir($tempuploaddir,true);
-					if(!is_dir($biguploaddir)) mkdir($biguploaddir,true);
-					if(!is_dir($smalluploaddir)) mkdir($smalluploaddir,true);
-					
-					$filetype = $this->getFileExtension($data['Image'][$datakey]['name']);
 					$filetype = strtolower($filetype);
  
 					if (($filetype != "jpeg")  && ($filetype != "jpg") && ($filetype != "gif") && ($filetype != "png"))
@@ -58,11 +72,14 @@ class ImageComponent extends Object
 					}
 					else
 					{
-						// Get the image size
-						$imgsize = GetImageSize($data['Image'][$datakey]['tmp_name']);
+						$imgsize = GetImageSize($data['Image']['src']['tmp_name']);
+						if ($imgsize[0] * $imgsize[1] > 2500*2000)
+						{
+							//echo $size_bild.' '.$imgsize;
+							return -2;
+						}
+						
 					}
-
-					// Generate a unique name for the image (from the timestamp)
 					$id_unic = str_replace(".", "", strtotime ("now"));
 					$filename = $id_unic;
 					  
@@ -70,29 +87,35 @@ class ImageComponent extends Object
 					$filename.= ".";
 					$filename.=$filetype;
 					$tempfile = $tempuploaddir . "/$filename";
-					$resizedfile = $biguploaddir . "/$filename";
+					$bigfile = $biguploaddir . "/$filename";
+					//$midstfile = $midstuploaddir . "/$filename";
 					$croppedfile = $smalluploaddir . "/$filename";
 					
 					
-					if (is_uploaded_file($data['Image'][$datakey]['tmp_name']))
+					if (is_uploaded_file($data['Image']['src']['tmp_name']))
                     {                    
 						// Copy the image into the temporary directory
-                        if (!copy($data['Image'][$datakey]['tmp_name'],"$tempfile"))
+						//echo "$tempfile !!!!".$data['Image'][$datakey]['tmp_name'];
+                        if (!copy($data['Image']['src']['tmp_name'],$tempfile))
                         {
                             print "Error Uploading File!.";
-                            exit(); 
+							return -1;
+							
                         }
 						else {				
 							/*
 							 *	Generate the big version of the image with max of $imgscale in either directions
 							 */
-							$this->resize_img($tempfile, $imgscale, $resizedfile);							
+							if ($imgscale > 0){
+								$this->resize_img($tempfile, $imgscale, $bigfile);
+							}
+							//if ($midstscale > 0) {$this->resize_img($tempfile, $midstscale, $midstfile);}							
 							
 							if($square) {
 								/*
 								 *	Generate the small square version of the image with scale of $thumbscale
 								 */
-								$this->crop_img($tempfile, $thumbscale, $croppedfile);
+								$this->crop_img($bigfile, $thumbscale, $croppedfile);
 							}
 							else {
 								/*
@@ -217,7 +240,7 @@ class ImageComponent extends Object
 		{
 			case "jpeg":
 			case "jpg":
-			 imagejpeg($img_des,$filename,80);
+			 imagejpeg($img_des,$filename,90);
 			 break;
 			 case "gif":
 			 imagegif($img_des,$filename,80);
@@ -229,7 +252,6 @@ class ImageComponent extends Object
 	}
  
     function getFileExtension($str) {
- 
         $i = strrpos($str,".");
         if (!$i) { return ""; }
         $l = strlen($str) - $i;
