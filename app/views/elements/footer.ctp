@@ -1,12 +1,7 @@
 <div id="wrap_footer">
 <div id="footer">
-<div  style="margin-left : auto;margin-right : auto;width : 600px;text-align: center;">
-	<ul class="links_footer">
-	<li style="display: inline;">
-	<?php echo $html->link('home', array('controller' => 'pages', 'action' => 'display','home'));?></li>
-	<li style="display: inline;">
-	<?php echo $html->link('impessum/imprint', array('controller' => 'pages', 'action' => 'display','impressum'));?></li>
-	</ul>
+<div  style="margin-left : auto;margin-right : auto;width : 600px;text-align: center;color:#ff9900;">
+© Powered by cakesocial <a href="http://code.google.com/p/cakesocial/">cakesocial </a> 2008-2010
 </div>
 </div>
 </div>

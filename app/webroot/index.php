@@ -1,5 +1,5 @@
 <?php
-/* SVN FILE: $Id: index.php 7214 2008-06-19 14:45:54Z gwoo $ */
+/* SVN FILE: $Id$ */
 /**
  * Short description for file.
  *
@@ -7,24 +7,21 @@
  *
  * PHP versions 4 and 5
  *
- * CakePHP(tm) :  Rapid Development Framework <http://www.cakephp.org/>
- * Copyright 2005-2008, Cake Software Foundation, Inc.
- *								1785 E. Sahara Avenue, Suite 490-204
- *								Las Vegas, Nevada 89104
+ * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
+ * Copyright 2005-2010, Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
  * Licensed under The MIT License
  * Redistributions of files must retain the above copyright notice.
  *
- * @filesource
- * @copyright		Copyright 2005-2008, Cake Software Foundation, Inc.
- * @link				http://www.cakefoundation.org/projects/info/cakephp CakePHP(tm) Project
- * @package			cake
- * @subpackage		cake.app.webroot
- * @since			CakePHP(tm) v 0.2.9
- * @version			$Revision: 7214 $
- * @modifiedby		$LastChangedBy: gwoo $
- * @lastmodified	$Date: 2008-06-19 16:45:54 +0200 (Чт, 19 июн 2008) $
- * @license			http://www.opensource.org/licenses/mit-license.php The MIT License
+ * @copyright     Copyright 2005-2010, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @link          http://cakephp.org CakePHP(tm) Project
+ * @package       cake
+ * @subpackage    cake.app.webroot
+ * @since         CakePHP(tm) v 0.2.9
+ * @version       $Revision$
+ * @modifiedby    $LastChangedBy$
+ * @lastmodified  $Date$
+ * @license       http://www.opensource.org/licenses/mit-license.php The MIT License
  */
 /**
  * Use the DS to separate the directories in other defines
@@ -57,7 +54,7 @@
  *
  */
 	if (!defined('CAKE_CORE_INCLUDE_PATH')) {
-		define('CAKE_CORE_INCLUDE_PATH', 'C:\cake_1.2.1.8004');
+		define('CAKE_CORE_INCLUDE_PATH', ROOT);
 	}
 
 /**
@@ -90,6 +87,6 @@
 		$Dispatcher->dispatch($url);
 	}
 	if (Configure::read() > 0) {
-		echo "" . round(getMicrotime() - $TIME_START, 4) . "s ";
+		echo "<!-- " . round(getMicrotime() - $TIME_START, 4) . "s -->";
 	}
 ?>
